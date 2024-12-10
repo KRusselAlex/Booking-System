@@ -6,6 +6,7 @@ import HotelView from '@/views/Hotel/HotelView.vue'
 import DetailHotel from '@/views/Hotel/DetailHotel.vue'
 import RoomsDetails from '@/views/Rooms/RoomsDetails.vue'
 import RoomsView from '@/views/Rooms/RoomsView.vue'
+import OnBoarding from '@/views/OnBoarding/OnBoarding.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -45,6 +46,11 @@ const router = createRouter({
       path: '/detailsrooms/:id',
       name: 'detailrooms',
       component: RoomsDetails,
+    },
+    {
+      path: '/onboardingone',
+      name: 'onb',
+      component: OnBoarding,
     },
 
   ],
