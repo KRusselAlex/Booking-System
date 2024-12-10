@@ -7,7 +7,7 @@ const router = useRouter();
 
 interface Props {
   title: string;
-  description:string
+  description: string
   image: string;
 }
 defineProps<Props>();
@@ -19,16 +19,26 @@ const handleClick = () => {
 
 </script>
 <template>
+  <div class="flex flex-col h-screen py-10 gap-y-8 justify-center    bg-secondary">
+    <H1 class="text-5xl font-bold text-center">xɔmɛ</H1>
+    <div class="h-72">
+      <img :src="imagey" alt="image" class="h-full bg-cover  w-full">
 
- <div class="flex flex-col py-10 gap-y-8">
-  <img :src="imagey" alt="image">
-  <div>
-    <h1>Choisisr une Destination</h1>
+    </div>
+
+    <div class="flex flex-col justify-start gap-y-3 px-3 ">
+      <h1 class=" font-semibold">Choisisr une Destination</h1>
+      <p>Planifiez votre prochain séjour en toute simplicité</p>
+
+    </div>
+    <div class="flex justify-end px-3">
+      <div class="w-1/3">
+      <NavigationButton title="next" :handle-click="handleClick"></NavigationButton>
+    </div>
+
+    </div>
+
   </div>
-  <div>
-    <NavigationButton title="next" :handle-click="handleClick" ></NavigationButton>
-  </div>
- </div>
 
 </template>
 

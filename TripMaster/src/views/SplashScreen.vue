@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavigationButton from '@/components/Buttons/NavigationButton.vue';
+// import NavigationButton from '@/components/Buttons/NavigationButton.vue';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -14,9 +14,9 @@ onMounted(() => {
     router.push('/onboardingone'); // Replace '/target-route' with the desired route
   }, 3000);
 });
-const handleClick= () => {
-  router.push("/onboardingone")
-}
+// const handleClick= () => {
+//   router.push("/onboardingone")
+// }
 
 </script>
 
@@ -26,9 +26,9 @@ const handleClick= () => {
 <div class="flex flex-col gap-4 justify-center items-center w-full h-full bg-primary h-screen ">
   <H1 class="text-5xl font-bold text-white">xɔmɛ</H1>
   <p> </p>
-  <div class="">
+  <!-- <div class="">
     <NavigationButton title="Next" color="white" css-text="primary" :handle-click="handleClick"></NavigationButton>
-  </div>
+  </div> -->
 
 </div>
 
