@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import NavigationButton from '../Buttons/NavigationButton.vue';
+import { useRouter } from 'vue-router';
+
+// Get the router instance
+const router = useRouter();
 
 interface Props {
   title: string;
@@ -13,14 +17,13 @@ defineProps<Props>();
 
 const handleClick = () => {
   console.log("view hotel")
+  router.push("/details/2")
 }
 
 </script>
-
-
 <template>
 
-  <RouterLink to="" class="relative bg-white flex flex-col gap-2  h-68 w-full rounded-xl">
+  <RouterLink to="/details/2" class="relative bg-white flex flex-col gap-2  h-68 w-full rounded-xl">
     <div class="h-28 rounded-tl-xl">
       <img :src="image" alt="" class="bg-cover h-full bg-center  rounded-tl-xl rounded-br-lg w-11/12">
     </div>

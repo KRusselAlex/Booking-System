@@ -4,6 +4,8 @@ import SplashScreen from '@/views/SplashScreen.vue'
 import BookingHotel from '@/views/BookingHotel.vue'
 import HotelView from '@/views/Hotel/HotelView.vue'
 import DetailHotel from '@/views/Hotel/DetailHotel.vue'
+import RoomsDetails from '@/views/Rooms/RoomsDetails.vue'
+import RoomsView from '@/views/Rooms/RoomsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,20 +26,27 @@ const router = createRouter({
       component: HotelView,
     },
     {
-      path: '/booking',
-      name: 'booking',
+      path: '/bookings',
+      name: 'bookings',
       component: BookingHotel,
     },
     {
       path: '/details/:id',
-      name: 'booking',
+      name: 'details',
       component: DetailHotel,
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue'),
+      path: '/rooms',
+      name: 'rooms',
+      component: RoomsView,
     },
+
+    {
+      path: '/detailsrooms/:id',
+      name: 'detailrooms',
+      component: RoomsDetails,
+    },
+
   ],
 })
 
