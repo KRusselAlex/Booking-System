@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import { useHotelStore } from "@/stores/hotelStore";
+import { useRoomsStore } from "@/stores/roomsStore";
+
+const hotelStore = useHotelStore();
+hotelStore.getallcourses();
+const roomsStore = useRoomsStore();
+roomsStore.getallcoursesContent();
 
 </script>
 

@@ -4,6 +4,7 @@ interface Props {
   link: string;
   note: number;
   image: string;
+  hotelID: number;
 
 }
 defineProps<Props>();
@@ -13,7 +14,7 @@ defineProps<Props>();
 
 <template>
 
-  <RouterLink to="/details/1" class="relative bg-cover bg-center h-40 w-full rounded-2xl " :style="`background-image: url('${image}');`">
+  <RouterLink :to="`/details/${hotelID}`" class="relative bg-cover bg-center h-40 w-full rounded-2xl " :style="`background-image: url('${image}');`">
 
     <div class=" absolute right-0 bottom-0 flex flex-col gap-2 text-white font-semibold w-full p-2">
 

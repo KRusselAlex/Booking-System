@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import NavigationButton from '@/components/Buttons/NavigationButton.vue';
 import AppHeader from '@/components/Navbars/AppHeader.vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
 
 const handleCLick = () => {
-  console.log("send");
+  router.push("/confirmpayment")
 }
 
 </script>

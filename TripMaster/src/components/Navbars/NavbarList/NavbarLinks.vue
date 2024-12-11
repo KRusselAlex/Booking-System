@@ -13,7 +13,7 @@ defineProps<Props>();
 
   <RouterLink :to="`${link}`" class="nav-custom-css flex justify-between rounded-full  items-center gap-3 p-3 hover:bg-secondary">
 
-    <span class="text-secondary hover:text-primary ">
+    <span class="text-[#eee8ff] hover:text-primary ">
       <slot>
 
       </slot>

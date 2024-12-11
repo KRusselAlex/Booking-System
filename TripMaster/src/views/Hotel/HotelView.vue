@@ -5,6 +5,7 @@ import FooterNavbar from '@/components/Navbars/FooterNavbar.vue';
 
 
 
+
 </script>
 
 <template>

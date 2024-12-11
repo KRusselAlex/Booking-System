@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import imageTest from '@/assets/download.jpeg'
 import NavigationButton from '@/components/Buttons/NavigationButton.vue';
+import { useRoute, useRouter } from 'vue-router';
+import { useHotelStore } from '@/stores/hotelStore';
+import { ref } from 'vue';
 
+const hotelStore = useHotelStore();
+const langue = ref("fr")
 const router = useRouter();
+const route = useRoute();
+
+const hotel = hotelStore.getOneCourse(route.params.id)
 const handleClick = () => {
-  console.log("are you there")
   router.push("/rooms")
 }
 
-import { useRouter } from 'vue-router';
-
-// Get the router instance
-
+console.log(hotel);
 
 // Define the goBack function
 function goBack() {
@@ -22,41 +26,91 @@ function goBack() {
 
 <template>
 
-  <div class=" relative h-full min-h-screen w-full " :style="`background-image: url('${imageTest}');`">
-    <div class="flex justify-start p-4">
-      <span class="rounded-full p-2 bg-white" @click="goBack()">
-        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M5 12H19M5 12L11 6M5 12L11 18" stroke="#000000" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
+  <div class="grid grid-rows-[1fr_3fr] h-screen relative  w-full ">
 
-      </span>
+    <div class=" h-48 rounded-b-3xl" :style="`background-image: url('${imageTest}');`">
+      <div class="flex justify-start p-4">
+        <span class="rounded-full p-2 bg-white" @click="goBack()">
+          <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M5 12L11 6M5 12L11 18" stroke="#000000" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+
+        </span>
+
+      </div>
 
     </div>
-    <div class="absolute bottom-0 z-10 w-full px-4">
-      <NavigationButton :handle-click="handleClick" title="Select Room" />
 
-    </div>
 
-    <div class=" absolute -bottom-40 w-full rounded-t-3xl min-h-1/2 h-full bg-white p-4 flex flex-col gap-4">
-      <div class="flex justify-between">
-        <h1 class="font-bold text-2xl">Grand Luxury</h1>
-        <p>230 fcfa</p>
+    <div class=" w-full rounded-t-3xl  h-full  bg-white py-5 flex flex-col justify-between gap-4 overflow-y ">
+      <div class="flex flex-col gap-4">
+        <div class="flex px-4 gap-1 items-center flex-wrap justify-start ">
+
+          <h1 class="font-bold text-2xl">{{ hotel.titre }}</h1>
+          <h6 class="italic text-sm text-gray-500"> ( {{ hotel.titre_fon }} ) </h6>
+
+
+        </div>
+        <div class="flex items-center px-4  justify-between gap-x-3" v-if="!hotel.town">
+          <p> Cotonou, Benin</p>
+          <p class="text-primary font-medium italic text-xl">{{ hotel.price }} FCFA</p>
+
+
+
+        </div>
+
+        <div v-else>
+          <div class="flex px-4 items-center justify-between gap-x-3">
+            <p>
+              {{ hotel.town }}
+            </p>
+            <p>,
+              {{ hotel.country }}
+
+            </p>
+
+
+
+          </div>
+          <p class="text-primary font-medium italic text-xl">{{ hotel.price }} FCFA</p>
+
+
+        </div>
+
+        <div class="flex flex-col px-4 ">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="text-xl font-bold">
+              Information
+            </h2>
+            <select v-model="langue" class="w-28 py-2 flex justify-center text-center rounded-full border-none outline-none bg-primary text-white ">
+              <option value="fr" class="rounded-lg">
+                Francais
+              </option>
+              <option value="fon" class="rounded-lg">
+                Fon
+              </option>
+            </select>
+
+          </div>
+
+          <p v-if="langue != 'fon'">{{ hotel.description }}</p>
+          <p v-else>{{ hotel.description_fon }}</p>
+        </div>
+
+
       </div>
-      <p>
-        parakou, Benin
-      </p>
-      <div class="flex flex-col ">
-        <h2 class="text-xl font-bold">
-          Information
-        </h2>
-        <p>Parakou's Paradise is located in Parakou. This property offers access to a terrace, free private parking and
-          free WiFi.
 
-          The guest house comes with a flat-screen TV.
 
-          Distance in property description is calculated using © OpenStreetMap</p>
+
+
+
+      <div
+        class="sticky bottom-0 flex w-full  flex-col gap-2 bg-white py-3 px-3 w-full items-center border-none  justify-end  bottom-0">
+        <NavigationButton :handle-click="handleClick" title="Chambre" />
+
       </div>
+
 
     </div>
 
