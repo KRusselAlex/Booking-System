@@ -30,10 +30,11 @@ const handleClick = () => {
         <div class="flex flex-col gap-y-2">
           <h1 class="font-medium text-xl">{{ title }}</h1>
           <div class="flex gap-x-2 items-center">
-            <p>
+            <p class="">
               Room size:
             </p>
-            <p>{{ size }}</p>
+            <p v-if="size" class="">{{ size }}</p>
+            <p v-else> 12km</p>
           </div>
 
         </div>
@@ -46,7 +47,8 @@ const handleClick = () => {
       </div>
       <div class="flex justify-between items-center">
 
-        <p>{{ price }} FCFA</p>
+        <p v-if="price" class="text-primary font-medium italic text-xl" >{{ price }} FCFA</p>
+        <p v-else class="text-primary font-medium italic text-xl" > 20,0000 FCFA</p>
         <div>
           <NavigationButton title="Choose" :handle-click="handleClick" />
 

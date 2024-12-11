@@ -60,8 +60,8 @@ function goBack() {
 
         </div>
 
-        <div v-else>
-          <div class="flex px-4 items-center justify-between gap-x-3">
+        <div v-else class="flex justify-between px-2 ">
+          <div class="flex px-4 items-center  gap-x-3">
             <p>
               {{ hotel.town }}
             </p>
@@ -70,10 +70,9 @@ function goBack() {
 
             </p>
 
-
-
           </div>
-          <p class="text-primary font-medium italic text-xl">{{ hotel.price }} FCFA</p>
+          <!-- <p class="text-primary font-medium italic text-xl px-2" v-if="hotel.price">{{ hotel.price }} FCFA</p>
+          <p class="text-primary font-medium italic text-xl px-2" v-else>20,000 FCFA</p> -->
 
 
         </div>

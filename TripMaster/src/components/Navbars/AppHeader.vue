@@ -24,7 +24,7 @@ defineProps<Props>();
       </span> -->
       <GoBack />
 
-      <div class="flex flex-col gap-10 justify-center w-1/2 items-center text-center " >
+      <div class="flex flex-col gap-10 justify-center w-2/3 items-center text-center " >
         <h2 class="text-3xl text-white font-semibold">{{ title }}</h2>
         <p class="text-sm text-white" v-if="description">{{ description }}</p>
       </div>

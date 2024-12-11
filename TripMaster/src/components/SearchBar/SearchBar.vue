@@ -1,4 +1,19 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useHotelStore } from '@/stores/hotelStore';
+
+const router = useRouter();
+const search = ref("");
+
+const hotelStore = useHotelStore();
+
+const handleSearch = () => {
+  hotelStore.filterStore(search.value)
+  console.log(search.value)
+  router.push("/searchhotel")
+}
+
 
 
 </script>
@@ -7,7 +22,7 @@
 <template>
 
   <div class="flex  w-full mx-6  rounded-lg bg-white p-3 justify-between items-center">
-    <span><svg fill="#000000" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+    <span @click="handleSearch"><svg fill="#000000" height="20px" width="20px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 488.4 488.4" xml:space="preserve">
         <g>
           <g>
@@ -19,7 +34,8 @@
         </g>
       </svg></span>
     <input type="text" placeholder="Explorez"
-      class="outline-none focus:ring-0 border-none px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
+    v-model="search"
+      class="outline-none focus:ring-0 w-full border-none px-4 py-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" />
 
   </div>
 

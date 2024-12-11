@@ -35,20 +35,19 @@ export const getstudentcourse = async () => {
     return data
 }
 
-export const createcourse = async (course_name, description, price, userId, categories, imageCourse) => {
+export const createcourse = async (course_name, description, price,  imageCourse,country,town) => {
 
 
     let uplaoddata = new FormData()
-    console.log(course_name, description, price, categories, imageCourse, userId)
+  
 
     uplaoddata.append("imageCourse", imageCourse)
-
-    uplaoddata.append("course_name", course_name)
+    uplaoddata.append("country",country )
+    uplaoddata.append("town",town )
+    uplaoddata.append("titre", course_name)
     uplaoddata.append("description", description)
     uplaoddata.append("price", price)
-    uplaoddata.append("categories", categories)
-    uplaoddata.append("userId", userId)
-    uplaoddata.append("duration", "12 semaine")
+
 
 
     const options = {

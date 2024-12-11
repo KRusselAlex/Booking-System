@@ -11,6 +11,8 @@ import OnBoardingTwo from '@/views/OnBoarding/OnBoardingTwo.vue'
 import OnBoardingThree from '@/views/OnBoarding/OnBoardingThree.vue'
 import ConfirmPayment from '@/views/Payements/ConfirmPayment.vue'
 import PaymentView from '@/views/Payements/PaymentView.vue'
+import SearchHotel from '@/views/Hotel/SearchHotel.vue'
+import AddHotels from '@/views/Admin/AddHotels.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -76,6 +78,23 @@ const router = createRouter({
       name: '',
       component: PaymentView,
     },
+    {
+      path: '/searchhotel',
+      name: '',
+      component: SearchHotel,
+    },
+    {
+      path: '/Addhotel',
+      name: '',
+      component: AddHotels,
+    },
+    {
+      path: '/Addrooms',
+      name: '',
+      component: SearchHotel,
+    },
+
+
 
 
 

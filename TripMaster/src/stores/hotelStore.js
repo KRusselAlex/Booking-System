@@ -94,7 +94,7 @@ export const useHotelStore = defineStore('hotel', {
         filterStore(value) {
             this.filterHotel = this.hotels
             this.filterHotel = this.hotels.filter((course) =>
-                course.course_name.toLowerCase().includes(value.toLowerCase()) || course.description.toLowerCase().includes(value.toLowerCase()) || course.categories.toLowerCase().includes(value.toLowerCase()) || (course.price <= value + 1000 && course.price >= value - 1000)
+                course.titre.toLowerCase().includes(value.toLowerCase())  || (course.price <= value + 1000 && course.price >= value - 1000)
             );
 
             return this.filterHotel

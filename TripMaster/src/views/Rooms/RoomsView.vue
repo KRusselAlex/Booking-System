@@ -7,7 +7,7 @@ import RoomList from '@/components/Rooms/RoomList.vue';
 
 <template>
   <main class="relative bg-secondary h-full min-h-screen w-full">
-    <AppHeader title="Select Room " :add-right-button=true />
+    <AppHeader title="Select Room " :add-right-button=false />
     <div class="flex flex-col gap-8  mx-4 mt-5">
       <RoomList />
     </div>
